@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
 import { SplashscreenComponent } from './splashscreen/splashscreen.component';
+import { UsernameGuard } from './username.guard';
 
 export const routes: Routes = [
     {
@@ -11,6 +12,7 @@ export const routes: Routes = [
       {
         path: 'chat',
         component: ChatComponent,
+        canActivate: [UsernameGuard],
         title: "Let's chat!",
       },
 ];
