@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-splashscreen',
@@ -8,8 +10,15 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './splashscreen.component.css'
 })
 export class SplashscreenComponent {
-   username : string = "";
-   serverUrl : string = "";
    
+  userSrv: UserService = inject(UserService);
+  router : Router = inject(Router);
+  username : string = ""; 
+  serverUrl : string = "";
    
+  
+  connect(): void { 
+    this.userSrv.setUsername(this.username);
+    this.router.navigate(['chat']);
+  }
 }

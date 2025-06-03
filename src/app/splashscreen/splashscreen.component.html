@@ -14,7 +14,10 @@
             <label for="username">Username</label>
             <input type="text" name="username" id="username" required [(ngModel)]="username" />
         </div>
-        <button class="login-button" type="submit">Se connecter</button>
+        <button 
+            class="login-button" 
+            type="submit"
+            (click)="connect()">Se connecter</button>
     </form>
     <div class="footer">
         <p>Pas encore de compte ? <a href="#">Créer un compte</a></p>
